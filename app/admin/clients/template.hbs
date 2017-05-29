@@ -1,0 +1,53 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="header">
+            <h4 class="title">
+                Klijenti
+                {{modal-trigger modalId="clientModal" btn="btn-primary" img="fa-plus" text="Novi klijent" class="pull-right" onTrigger="setupNewClient"}}
+            </h4>
+            <p class="category"></p>
+        </div>
+        
+
+        <div class="content">
+            {{#if notDeleted.length}}
+                <div class="table-responsive table-full-width">
+                    <table class="table table-hover table-striped">
+                        <thead data-table-id={{tableId}}>
+                            <th></th>
+                            {{#sortable-th key="name"}}
+                                Ime
+                            {{/sortable-th}}
+                        </thead>
+                        <tbody>
+                            {{#each notDeleted as |client index|}}
+        						<tr>
+        						    <td>
+	        						    {{#modal-trigger modalId="deleteClientModal" link=true onTrigger=(action "setClient" client)}}
+	                                        {{increment index}} <span class="fa fa-trash text-danger"></span>
+	                                    {{/modal-trigger}}
+                                    </td>
+                                    <td>
+                                        {{#modal-trigger modalId="clientModal" link=true onTrigger=(action "setClient" client)}}
+                                            {{client.name}}
+                                        {{/modal-trigger}}
+                                    </td>
+        						</tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{else}}
+                <div class="row">
+                    <div class="no-results">
+                        <div class="text-danger">
+                            Nije pronađen nijedan rezultat
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
+{{confirm-delete-modal model=client type="Client" translation="ovog klijenta"}}
+{{client-modal companies=model.companies client=client}}

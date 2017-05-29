@@ -1,0 +1,11 @@
+{{#modal-comp modalId="companyModal" title=(if user.isNew "Nova kompanija" "Sačuvaj kompaniju")
+				btnClass="btn-primary" btnText=(if user.isNew "Nova kompanija" "Sačuvaj kompaniju")
+				backAction="backAction" successAction="successAction"}}
+	
+  {{modal-error-comp model=company}}
+
+  <div class="form-group">
+    <label>Ime</label>
+    {{input type="text" class="form-control" value=company.name}}
+  </div>
+{{/modal-comp}}

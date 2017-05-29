@@ -1,0 +1,9 @@
+{{#modal-comp modalId=(concat (concat "delete" type) "Modal") title="Potvrdite brisanje" 
+				btnClass="btn-danger" btnText="Obriši"
+				backAction="backAction" successAction="successAction"}}
+	
+	{{modal-error-comp model=model}}
+
+	Da li ste sigurni da želite da obrišete {{translation}}?
+
+{{/modal-comp}}

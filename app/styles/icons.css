@@ -1,0 +1,13 @@
+.logo-icon {
+	background-image: url("http://res.cloudinary.com/dbpractice/image/upload/v1495964981/logo-final_dubgqu.png");
+	margin: 0;
+	width: 150px;
+	height: 54px;
+	top: 12px;
+	background-size: 150px auto; 
+	background-repeat: no-repeat; 
+}
+.navbar-header .logo-icon {
+    background-size: 120px auto; 
+    background-position-y: 10px;
+}

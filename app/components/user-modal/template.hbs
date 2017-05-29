@@ -1,0 +1,41 @@
+{{#modal-comp modalId="userModal" title=(if user.isNew "Novi korisnik" "Sačuvaj korisnika")
+				btnClass="btn-primary" btnText=(if user.isNew "Novi korisnik" "Sačuvaj korisnika")
+				backAction="backAction" successAction="successAction"}}
+	
+  {{modal-error-comp model=user}}
+
+  <div class="form-group">
+    <label>Ime</label>
+    {{input type="text" class="form-control" value=user.name}}
+  </div>
+
+  <div class="form-group">
+    <label>Company</label>
+    <select class="form-control" onchange={{action (mut user.companyId) value="target.value"}}>
+      <option value="" selected={{eq "" user.companyId}}>Molim Vas odaberite kompaniju</option>
+      {{#each companies as |company|}}
+        <option value={{company.id}} selected={{eq company.id user.companyId}}>{{company.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Telefon</label>
+    {{input type="text" class="form-control" value=user.phone}}
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    {{input type="text" class="form-control" value=user.email}}
+  </div>
+
+  <div class="form-group">
+    <label>Username</label>
+    {{input type="text" class="form-control" value=user.username}}
+  </div>
+
+  <div class="form-group">
+    <label>Password</label>
+    {{input type="text" class="form-control" value=user.password}}
+  </div>
+{{/modal-comp}}

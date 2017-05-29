@@ -1,0 +1,33 @@
+{{#if auth.admin}}
+    <div class="sidebar">
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                    ADMIN PANEL
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    {{#link-to "admin.users"}}
+                        <i class="pe-7s-users"></i>
+                        <p>Korisnici</p>
+                    {{/link-to}}
+                </li>
+                <li>
+                    {{#link-to "admin.companies"}}
+                        <i class="pe-7s-ribbon"></i>
+                        <p>Kompanije</p>
+                    {{/link-to}}
+                </li>
+                <li>
+                    {{#link-to "admin.clients"}}
+                        <i class="pe-7s-ribbon"></i>
+                        <p>Klijenti</p>
+                    {{/link-to}}
+                </li>
+            </ul>
+    	</div>
+    </div>
+
+{{/if}}
