@@ -8,14 +8,15 @@ export default Ember.Route.extend({
 	
 	beforeModel() {
 		let baseUrl = ENV.baseUrl;
+		console.log(ENV.baseURL);
 
 		Ember.$.ajaxSetup({
 			dataType: 'json',
 			contentType : 'application/json; charset=utf-8',
 			cache: false,
-			beforeSend: function(xhr, options) {
-				options.url = baseUrl + options.url;
-			},
+			// beforeSend: function(xhr, options) {
+			// 	options.url = baseUrl + options.url;
+			// },
 			error: (error) => {
 				if (error && error.status === 403) {
 					return;	
@@ -28,9 +29,9 @@ export default Ember.Route.extend({
 				dataType: 'json',
 				contentType : 'application/json; charset=utf-8',
 				cache: false,
-				beforeSend: function(xhr, options) {
-					options.url = baseUrl + options.url;
-				},
+				// beforeSend: function(xhr, options) {
+				// 	options.url = baseUrl + options.url;
+				// },
 				error: (error) => {
 					if (error && error.status === 403) {
 						return;	
